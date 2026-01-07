@@ -44,9 +44,9 @@ im.ridgelinecrop <- function(im, scale, palette = c(
   df_list <- list()
   
   for (i in seq_along(bands)) {
-    df <- as.data.frame(bands[[i]]) %>%
+    df <- as.data.frame(bands[[i]], wide=FALSE) %>%
       pivot_longer(
-        cols= everything(),
+        cols= -c(wide),
         names_to = "layer",
         values_to = "values"
       ) %>%
