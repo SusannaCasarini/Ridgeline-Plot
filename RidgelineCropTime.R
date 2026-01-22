@@ -19,6 +19,11 @@ im.ridgelinecroptime <- function(im_list, scale, n=5, direction="horizontal") {
   
   all_df_list <- list()
   all_plots_list <- list()
+
+  # To manage one-image lists
+  if (is.null(names(im_list))) {
+    names(im_list) <- "SingleTime Image"
+  }
   
   for (t in seq_along(im_list)) {
     im <- im_list[[t]]
